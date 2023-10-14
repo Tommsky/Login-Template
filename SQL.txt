@@ -1,0 +1,27 @@
+Create a MySQL database and a table to store user information:
+
+CREATE DATABASE mydb;
+USE mydb;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL
+);
+
+Remember to update to the latest MySQL
+
+Client does not support authentication protocol requested by server; consider upgrading MySQL client fix:
+
+
+Execute the following query in MYSQL Workbench
+
+ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'password';
+
+Where root as your user localhost as your URL and password as your password
+Then run this query to refresh privileges:
+
+flush privileges;
+
+Try connecting using node after you do so.
+If that doesn't work, try it without @'localhost' part.
